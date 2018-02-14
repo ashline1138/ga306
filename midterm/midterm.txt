@@ -1,0 +1,6 @@
+1. a list
+2. import function
+3. variable length arguments lists and variable keyword arguments lists.
+4. function, default, and keyword arguments
+5. the for statement
+6. in
