@@ -1,0 +1,28 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 import maya.cmds\
+loc = maya.cmds.spaceLocator()[0]\
+print(maya.cmds.getAttr('%s.rotateOrder'%loc))\
+\
+roStrToInt = \{\
+    'xyz':0,'yzx':1,'zxy':2,\
+    'xzy':3,'yxz':4,'zyx':5\}\
+roIntToStr = \{\
+    0:'xyz',1:'yzx',2:'zxy',\
+    3:'xzy',4:'yxz',5:'zyx'\}    \
+\
+import maya.cmds\
+lever = maya.cmds.polyCube()[0]\
+maya.cmds.setAttr(\
+'%s.rotateOrder'%lever,\
+roStrToInt['zxy'])\
+\
+rotateOrder = maya.cmds.getAttr('%s.rotateOrder'%lever)\
+joint = maya.cmds.joint(rotationOrder=roIntToStr[rotateOrder])\
+rotationOrder=roIntToStr\
+rotateOrder = maya.cmds.getAttr('%s.rotateOrder'%lever,\
+roStrToInt['zxy'])}
